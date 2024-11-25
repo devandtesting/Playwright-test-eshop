@@ -1,0 +1,51 @@
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.Playwright;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        using var playwright = await Playwright.CreateAsync();
+        var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions { Headless = false });
+        var page = await browser.NewPageAsync();
+        await page.GotoAsync("https://www.o2.sk/");
+
+        // Click on the link with href="/ponuka/telefony-a-zariadenia"
+        await page.ClickAsync("a[href='/ponuka/telefony-a-zariadenia']");
+
+        // Wait for the page to load or for the URL to change (you can adjust the URL pattern here)
+        await page.WaitForURLAsync("**/ponuka/telefony-a-zariadenia");
+
+        // Click on the <a> element with data-gtmname="Mobilne telefony"
+        await page.ClickAsync("a[data-gtmname='Mobilne telefony']");
+
+        // Wait for the page to load or for the URL to change (adjust the pattern if necessary)
+        await page.WaitForURLAsync("**/telefony");  // Adjust the URL or use a pattern that fits
+
+
+        // Click on the <a> element with data-gtmname="Mobilne telefony apple"
+        await page.ClickAsync("a[href='/e-shop/produkty/telefony-apple']");
+
+        // Wait for the page to load or for the URL to change (adjust the pattern if necessary)
+        await page.WaitForURLAsync("**/produkty/telefony-apple");  // Adjust the URL or use a pattern that fits
+
+
+
+        // // Click on the element with the specified data-testid
+        // await page.ClickAsync("o2-box[data-testid='sku-card-box-9f4fe78f-18bc-4f7b-9bbe-3e8329294413']");
+
+        // // // Wait for the page to load or for the URL to change (you can adjust the URL pattern here)
+        // await page.WaitForURLAsync("**/honor-200-lite-modry");
+
+
+
+
+        // Print the page title after clicking the link
+        var title = await page.TitleAsync();
+        Console.WriteLine($"Page title after clicking: {title}");
+
+        // Close the browser after the task is complete
+        await browser.CloseAsync();
+    }
+}
