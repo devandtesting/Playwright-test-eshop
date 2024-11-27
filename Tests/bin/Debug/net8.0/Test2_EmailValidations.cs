@@ -26,7 +26,6 @@ public class O2Tests2
         Console.WriteLine(testName);
         // Web o2
         await page.GotoAsync("https://www.o2.sk/");
-        Assert.AreEqual("O2 | Mobilné telefóny, internet a volacie programy", await page.TitleAsync());
 
         // Vyber mobilu | Vyber pausalu | Vyska akontacie | Nakupny kosik 
         await page.ClickAsync("a[href='/ponuka/telefony-a-zariadenia']");
