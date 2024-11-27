@@ -1,0 +1,35 @@
+
+TESTOVACIE SCENÁRE
+
+ID: 001
+Názov: Testovací scenár pre vykúpenie z viazanosti - Internet na doma [Happy flow]
+Severita: Vysoká
+Prerekvizity: Funguje prístup na servre O2
+Prostredia: Testovanie na troch browseroch: Chrome, Firefox, Webkit
+Kroky:
+1. Otvorenie URL: https://www.o2.sk/
+2. Klik na "Internet a TV"
+3. Klik na "Overiť dostupnosť"
+4. Zadanie adresy kde je dostupnosť (napr. Dunajská 5, Bratislava) 
+5. Klik na "Vybrať internet" na možností "Bezstarostný"
+6. Klik "Pokračovať ako nový zákazník"
+7. Na stránke výber zariadenia ponechať Wi-fi Router (test gombíku "Zistiť viac")
+8. Klik na "Pokračovať"
+9. Vyberte spôsob inštalácie - klik na "Pokračovať"
+10. Klik na "Preplatiť zmluvnú pokutu"
+11. Vyplniť číslo účtu (fungujúci IBAN)
+12. Klik pokračovať
+13. Klik O2 TV checkbox
+14. Klik "Prejsť do košíka" 
+15. [..tbd dokončiť proces]
+Očakávaný výsledok: finálna stránka objednávacieho procesu pre internet na doma + o2 tv; v databázach správne zapísana objednávka a údaje zákazníka; (pravdepodobne) potvrdzujúci mail odoslaný zákazníkovi správne vygenerovaný so správnymi prílohami.
+
+
+Ďalšie možné rozvinutie testov:
+- pri overení adresy zadať: a. reálnu adresu kde nie je dostupnosť internetu, b. neexistujú adresu na Slovensku, c. zlý formát adresy (napr. len čísla, znaky)
+- v procese objednávania sa prihlásiť ako existujúci zákazník namiesto nového 
+- číslo účtu vložiť: a. vymyslené, b. IBAN inej krajiny, c. zlý formát / počet znakov
+- otestovat dynamický dizajn na rôznych zariadeniach a rozhraniach, aj mobilné telefóny Android/iPhone
+- pri vypĺňaní údajov o zákazníkovi overiť validácie na polia
+
+
