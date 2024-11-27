@@ -4,7 +4,7 @@ using Microsoft.Playwright;
 using NUnit.Framework;
 
 [TestFixture]
-public class O2Tests
+public class O2Tests2
 {
     IPlaywright? playwright;
     IBrowser? browser;
