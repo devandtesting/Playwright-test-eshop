@@ -69,6 +69,7 @@ public class O2Tests2
         await page.FillAsync("input[name='email']", email);
         await page.Keyboard.PressAsync("Tab");
         await page.Keyboard.PressAsync("Tab");
+        await Task.Delay(1000);
         var helpTextElement = page.Locator("span[slot='help-text']:text('email')");
         bool isVisible = await helpTextElement.IsVisibleAsync(new LocatorIsVisibleOptions { Timeout = 2000 });
         Assert.IsFalse(isVisible, "The helpText element for email should not be visible.");
